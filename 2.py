@@ -39,7 +39,7 @@ for i in range(len(codes)):
         testString = codes[j]
         if (countDiff(baseString, testString) == 1):
             ans1 = testString
-            ans2 = baseString #because it will assign twice
+            ans2 = baseString   #it will assign twice
 
 index = 0
 for i in range(len(ans1)):
