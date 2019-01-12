@@ -1,5 +1,5 @@
 #part (a)
-lines = [int(line.rstrip('\n')) for line in open('1a.txt')]
+lines = [int(line.rstrip('\n')) for line in open('1.in')]
 print(sum(lines))
 
 #part(b)

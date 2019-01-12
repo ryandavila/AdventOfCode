@@ -1,7 +1,7 @@
 from collections import defaultdict
-steps = [line.rstrip('\n') for line in open('7.txt')]
+steps = [line.rstrip('\n') for line in open('7.in')]
 
-#part a
+#part (a)
 #returns the dependency in the form (a, b): "step a must be finished before step b can begin"
 def parse_step(step):
     parsed =  step.lower().split('step ')
@@ -31,12 +31,13 @@ while tracker:
             tracker.append(x)
 print(answer.upper())
 
-#part b
+#part (b)
 nodes = defaultdict(list)
 amount = defaultdict(int)
 t = 0
 work = []
 queue = []
+
 for s in steps:
     parse = parse_step(s)
     nodes[parse[0]].append(parse[1])
@@ -44,12 +45,14 @@ for s in steps:
 
 def add_task(task):
     queue.append(task)
+
 def start_task():
     global queue
     while len(work) < 5 and queue:
         low = min(queue)
         queue = [q for q in queue if q != low]
         work.append((t+61+ord(low)-ord('a'), low))
+
 for n in nodes:
     nodes[n] = sorted(nodes[n])
 for n in nodes:

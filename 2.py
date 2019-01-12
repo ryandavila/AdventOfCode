@@ -1,26 +1,23 @@
 from collections import Counter
 
+codes = [line.rstrip('\n') for line in open('2.in')]
+
 #part (a)
-codes = [line.rstrip('\n') for line in open('2.txt')]
-letterCounts = []
+letter_counts = []
 
 for c in codes:
-    letterCounts.append(Counter(list(c)).most_common(2))
+    letter_counts.append(Counter(list(c)).most_common(2))
 
-#print(letterCounts)
-#print(letterCounts[0])
-#print(any(list(map(lambda t: t[1] == 2, letterCounts[0]))))
+twos = 0
+threes = 0
 
-twoAcc = 0
-threeAcc = 0
-
-for lc in letterCounts:
+for lc in letter_counts:
     if any(map(lambda t: t[1] == 2, lc)):
-        twoAcc += 1
+        twos += 1
     if any(map(lambda t: t[1] == 3, lc)):
-        threeAcc += 1
+        threes += 1
 
-print(twoAcc*threeAcc)
+print(twos*threes)
 
 #part (b)
 def countDiff(str1, str2):
@@ -39,7 +36,7 @@ for i in range(len(codes)):
         testString = codes[j]
         if (countDiff(baseString, testString) == 1):
             ans1 = testString
-            ans2 = baseString   #it will assign twice
+            ans2 = baseString   #assigns twice
 
 index = 0
 for i in range(len(ans1)):

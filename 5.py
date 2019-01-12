@@ -1,6 +1,6 @@
-polymer = ''.join([line.rstrip('\n') for line in open('5.txt')])
+polymer = ''.join([line.rstrip('\n') for line in open('5.in')])
 
-#part a
+#part (a)
 stack = []
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 alpha = {}
@@ -15,7 +15,7 @@ for c in polymer:
         stack.append(c)
 print(len(stack))
 
-#part b
+#part (b)
 length = 100000
 for a in alphabet:
     new_polymer = polymer.replace(a, '').replace(a.upper(), '')

@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.spatial import distance
 
-#part a
-points = np.loadtxt('6.txt', delimiter = ', ')
+#part (a)
+points = np.loadtxt('6.in', delimiter = ', ')
 xMin, yMin = points.min(axis=0) - 1
 xMax, yMax = points.max(axis=0) + 2
 
@@ -25,7 +25,7 @@ closest_origin[np.isin(closest_origin, infinites)] = len(points) + 1
 
 print(np.max(np.bincount(closest_origin.ravel())[:-1]))
 
-#part b
+#part (b)
 origin_distances = distances.sum(axis=0)
 region = np.where(origin_distances < 10000, 1, 0)
 print(region.sum())

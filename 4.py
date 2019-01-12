@@ -1,5 +1,6 @@
 from collections import defaultdict
-shifts = [line.rstrip('\n') for line in open('4.txt')]
+
+shifts = [line.rstrip('\n') for line in open('4.in')]
 shifts.sort()
 #'[1518-03-16 00:04] Guard #1973 begins shift'
 #'[1518-03-16 00:34] falls asleep'
@@ -7,9 +8,10 @@ shifts.sort()
 #'[1518-03-16 00:52] falls asleep'
 #'[1518-03-16 00:53] wakes up'
 
-#part a
+#part (a)
 guards = defaultdict(int)
 times = defaultdict(lambda: defaultdict(int))
+
 for shift in shifts:
     if 'begins shift' in shift:
         guard = shift.split(' ')[3][1:]
@@ -29,10 +31,9 @@ def findMax(d):
 
 best_guard = findMax(guards)
 best_time = findMax(times[best_guard])
+print(int(best_guard) * int(best_time))
 
-print(best_guard, best_time, int(best_guard) * int(best_time))
-
-#part b
+#part (b)
 guards = defaultdict(int)
 times = defaultdict(int)
 for shift in shifts:
@@ -53,5 +54,4 @@ def findMax(d):
     return best
 
 best_guard, best_time = findMax(times)
-
-print(best_guard, best_time, int(best_guard) * int(best_time))
+print(int(best_guard) * int(best_time))

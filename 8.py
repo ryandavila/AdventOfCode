@@ -1,6 +1,7 @@
-data = list(map(int, open('8.txt').read().split()))
-i = 0
+data = list(map(int, open('8.in').read().split()))
 
+#part (a)
+i = 0
 def next_value():
     global i, data
     i += 1
@@ -26,6 +27,7 @@ def sum_metadata(data):
         total += sum_metadata(c)
     return total
 
+#part (b)
 def value_metadata(data):
     children, metadata = data
     value = 0
